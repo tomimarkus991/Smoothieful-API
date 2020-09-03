@@ -12,10 +12,10 @@ connectDB();
 // });
 app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body);
+//   next();
+// });
 
 // Define Routes
 app.use("/api/smoothies", require("./src/routes/smoothies"));
