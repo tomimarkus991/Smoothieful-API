@@ -26,7 +26,7 @@ app.get("/api", (req, res) => {
 
 // Define Error Route 404
 app.use((req, res, next) => {
-  res.status(404).send("we think you are lost");
+  res.status(404).sendFile(path.join(__dirname, "public/404.html"));
 });
 // Define Error Route 500
 app.use((err, req, res, next) => {
