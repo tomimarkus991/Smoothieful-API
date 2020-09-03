@@ -7,9 +7,9 @@ const bodyParser = require("body-parser");
 // Connect Database
 connectDB();
 
-app.get("/", (req, res) => {
-  res.render(path.join(__dirname, "public/index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "public/index.html"));
+// });
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -26,7 +26,7 @@ app.get("/api", (req, res) => {
 
 // Define Error Route 404
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "public/404.html"));
+  res.status(404).send("we think you are lost");
 });
 // Define Error Route 500
 app.use((err, req, res, next) => {
