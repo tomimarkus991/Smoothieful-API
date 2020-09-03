@@ -7,7 +7,6 @@ const connectDB = require("./config/db");
 connectDB();
 
 // Init Middleware
-app.use(express.json({ extended: false }));
 app.use(express.static("public"));
 
 // Define Routes
