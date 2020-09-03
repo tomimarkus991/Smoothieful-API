@@ -3,6 +3,9 @@ const router = express.Router();
 const Smoothie = require("../models/Smoothie");
 const { validationResult } = require("express-validator");
 
+router.get("/test", (req, res) => {
+  res.send("test");
+});
 // @route    GET api/smoothies
 // @desc     Get all smoothies
 router.get("/", async (req, res) => {
