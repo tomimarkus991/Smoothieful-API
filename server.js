@@ -6,6 +6,7 @@ const connectDB = require("./config/db");
 // Connect Database
 connectDB();
 
+app.use(express.json());
 // Init Middleware
 app.use(express.static("public"));
 
