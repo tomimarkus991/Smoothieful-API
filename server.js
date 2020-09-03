@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 let path = require("path");
-const connectDB = require("../config/db");
+const connectDB = require("./config/db");
 const bodyParser = require("body-parser");
 
 // Connect Database
@@ -18,11 +18,17 @@ app.use((req, res, next) => {
 });
 
 // Define Routes
-app.use("/api/smoothies", require("./routes/smoothies"));
-
+app.use("/api/smoothies", require("./src/routes/smoothies"));
 app.get("/api", (req, res) => {
   res.json({ msg: "Welcome to Smoothieful API" });
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("src/public"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "src", "public", "index.html"));
+  });
+}
 
 // Define Error Route 404
 app.use((req, res, next) => {
