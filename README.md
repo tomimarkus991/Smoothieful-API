@@ -1,2 +1,0 @@
-# Smoothieful-API
-Smoothieful-API
