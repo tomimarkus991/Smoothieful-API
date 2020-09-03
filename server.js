@@ -19,11 +19,12 @@ app.use(bodyParser.json());
 
 // Define Routes
 app.use("/api/smoothies", require("./src/routes/smoothies"));
-
-app.use(express.static("src/public"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "src", "public", "index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("src/public"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "src", "public", "index.html"));
+  });
+}
 
 // Define Error Route 404
 app.use((req, res, next) => {
