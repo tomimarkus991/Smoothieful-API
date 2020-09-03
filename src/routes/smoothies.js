@@ -3,12 +3,6 @@ const router = express.Router();
 const Smoothie = require("../models/Smoothie");
 const { validationResult } = require("express-validator");
 
-// // @route    GET error
-// // @desc     Get error
-// router.get("/error", (req, res) => {
-//   throw new Error("This is an error");
-// });
-
 // @route    GET api/smoothies
 // @desc     Get all smoothies
 router.get("/", async (req, res) => {

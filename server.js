@@ -8,34 +8,17 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "public/index.html"));
-// });
-
-// app.use((req, res, next) => {
-//   console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body);
-//   next();
-// });
+app.use(express.static("public"));
 
 // Define Routes
 app.use("/api/smoothies", require("./src/routes/smoothies"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("src/public"));
+  app.use(express.static("public"));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "src", "public", "index.html"));
+    res.sendFile(path.resolve(__dirname, "public", "index.html"));
   });
 }
-
-// // Define Error Route 404
-// app.use((req, res, next) => {
-//   res.status(404).send("we think you are lost");
-// });
-// // Define Error Route 500
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.sendFile(path.join(__dirname, "public2/error.html"));
-// });
 
 // Set Port
 const PORT = process.env.PORT || 5000;
