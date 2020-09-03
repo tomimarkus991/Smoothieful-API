@@ -19,9 +19,6 @@ app.use((req, res, next) => {
 
 // Define Routes
 app.use("/api/smoothies", require("./src/routes/smoothies"));
-app.get("/api", (req, res) => {
-  res.json({ msg: "Welcome to Smoothieful API" });
-});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("src/public"));
