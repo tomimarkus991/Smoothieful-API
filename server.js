@@ -8,12 +8,7 @@ const bodyParser = require("body-parser");
 // Connect Database
 connectDB();
 
-app.use(bodyParser.json());
-app.use(
-  bodyParser.urlencoded({
-    extended: false,
-  })
-);
+app.use(express.json({ extended: false }));
 app.use(cors());
 // Init Middleware
 app.use(express.static("public"));
