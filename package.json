@@ -2,10 +2,10 @@
   "name": "smoothieful-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "dev": "npm run server"
   },
   "keywords": [],
